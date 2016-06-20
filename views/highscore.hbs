@@ -75,7 +75,10 @@
     <td>{{rank}}.</td>
     <td>
         {{#if (gt0 history)}}
-        <span class="history-up"><i class="fa fa-arrow-up" title="{{history}}"></i></span>
+        <span class="history-up"><i class="fa fa-arrow-up" title="+{{history}}"></i></span>
+        {{/if}}
+        {{#if (eq0 history)}}
+        <span class="history-eq"><i class="fa fa-arrow-right" title="+{{history}}"></i></span>
         {{/if}}
         {{#if (lt0 history)}}
         <span class="history-down"><i class="fa fa-arrow-down" title="{{history}}"></i></span>

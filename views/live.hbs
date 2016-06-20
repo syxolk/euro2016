@@ -28,9 +28,40 @@
         </div>
         <p>Average bet: <b>{{toFixed1 avghome}}</b> : <b>{{toFixed1 avgaway}}</b></p>
     </div>
-    <div class="panel-footer">
-        {{#each bets}}{{#if @first}}{{else}},{{/if}} <a href="/user/{{User.id}}">{{User.name}}</a> {{goalsHome}}:{{goalsAway}}{{/each}}
-    </div>
+    <table class="table">
+	<tr>
+		<td class="col-md-1">{{hometeam}} Wins</td>
+		<td class="col-md-11">
+		{{#each bets}}{{#if (sup goalsHome goalsAway)}} <a href="/user/{{User.id}}">{{User.name}} </a> {{goalsHome}}:{{goalsAway}}{{/if}}{{/each}}
+		</td>
+	</tr>
+	<tr>
+		<td class="col-md-1">{{awayteam}} Wins</td>
+		<td class="col-md-11">
+		{{#each bets}}{{#if (sup goalsAway goalsHome)}} <a href="/user/{{User.id}}">{{User.name}} </a> {{goalsHome}}:{{goalsAway}}{{/if}}{{/each}}
+		</td>
+	</tr>
+	<tr>
+		<td class="col-md-1">Draw</td>
+		<td class="col-md-11">
+		{{#each bets}}{{#if  (eq goalsAway goalsHome)}} <a href="/user/{{User.id}}">{{User.name}} </a> {{goalsHome}}:{{goalsAway}}{{/if}}{{/each}}
+		</td>
+	</tr>
+	{{#if nobet}}
+	<tr>
+		<td class="col-md-1">No bet</td>
+		<td class="col-md-11">
+                {{#each nobet}}<a href="/user/{{id}}">{{name}} </a>{{/each}}
+                </td>
+	</tr>
+	{{/if}}
+	<tr>
+                <td class="col-md-1">Number of participants</td>
+                <td class="col-md-11">
+                {{countbets}}
+                </td>
+        </tr>
+    </table>  
 </div>
 {{/each}}
 {{else}}

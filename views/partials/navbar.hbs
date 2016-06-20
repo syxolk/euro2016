@@ -17,7 +17,12 @@
                 <li><a href="{{@origin}}/live">Live Matches</a></li>
                 <li><a href="{{@origin}}/past">Past Matches</a></li>
                 <li><a href="{{@origin}}/highscore">Highscore</a></li>
-                <li><a href="/news">News</a></li>
+                <li><a href="{{@origin}}/news">News</a></li>
+                {{#with loggedUser}}
+                {{#if admin}}
+                <li><a href="{{@origin}}/admin">Admin</a></li>
+                {{/if}}
+                {{/with}}
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

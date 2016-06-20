@@ -11,6 +11,8 @@ module.exports = function(app) {
                 var match = matches[i];
                 match.draw = 100 - match.winnerhome - match.winneraway;
                 var bets = {0: [], 1: [], 2: [], 3: []};
+		var nobet = [];
+		match.nobet = nobet;
                 for(var j = 0; j < match.listscore.length; j++) {
                     bets[match.listscore[j]].push({
                         name: match.listname[j],
@@ -19,12 +21,18 @@ module.exports = function(app) {
                         id: match.listid[j]
                     });
                 }
+		for(var j = 0; j < match.listnobetids.length; j++) {
+		    match['nobet'].push({
+			name: match.listnobetnames[j],
+			id: match.listnobetids[j]
+		   });
+		} 
                 for(var s = 0; s <= 3; s++) {
                     match['score' + s] = bets[s];
                 }
             }
 
-            res.render('past', {matches, loggedIn: !!req.user});
+            res.render('past', {matches, loggedIn: !!req.user, loggedUser: req.user});
         });
     });
 };

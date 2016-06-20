@@ -15,6 +15,6 @@ module.exports = function(app) {
     require('./friend')(app);
 
     app.use(function (req, res, next) {
-        res.status(404).render('404', {loggedIn : !!req.user});
+        res.status(404).render('404', {loggedIn : !!req.user, loggedUser: req.user});
     });
 };

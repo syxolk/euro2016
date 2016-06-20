@@ -26,16 +26,16 @@
         {"code": "HUN", "name": "Hungary"}
     ],
     "types": [
-        {"code": "A", "name": "Group A"},
-        {"code": "B", "name": "Group B"},
-        {"code": "C", "name": "Group C"},
-        {"code": "D", "name": "Group D"},
-        {"code": "E", "name": "Group E"},
-        {"code": "F", "name": "Group F"},
-        {"code": "R16", "name": "Round of 16"},
-        {"code": "QF", "name": "Quarter-final"},
-        {"code": "SF", "name": "Semi-final"},
-        {"code": "F", "name": "Final"}
+        {"code": "A", "name": "Group A", "coef":"1"},
+        {"code": "B", "name": "Group B", "coef":"1"},
+        {"code": "C", "name": "Group C", "coef":"1"},
+        {"code": "D", "name": "Group D", "coef":"1"},
+        {"code": "E", "name": "Group E", "coef":"1"},
+        {"code": "F", "name": "Group F", "coef":"1"},
+        {"code": "R16", "name": "Round of 16", "coef":"2"},
+        {"code": "QF", "name": "Quarter-final", "coef":"3"},
+        {"code": "SF", "name": "Semi-final", "coef":"4"},
+        {"code": "F", "name": "Final", "coef":"5"}
     ],
     "matches": [
         {"home": "FRA", "away": "ROU", "when": "2016-06-10T21:00+02:00", "type": "A"},

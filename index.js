@@ -63,6 +63,14 @@ hbs.registerHelper('calendar', function(when) {
     return moment(when).format('dddd, MMMM Do, H:mm');
 });
 
+hbs.registerHelper('eq', function(param1, param2) {
+    return param1 == param2;
+});
+
+hbs.registerHelper('sup', function(param1, param2) {
+    return param1 > param2;
+});
+
 hbs.registerHelper('calendarShort', function(when) {
     return moment(when).format('MMM D, H:mm');
 });
@@ -85,6 +93,10 @@ hbs.registerHelper('isZero', function(num) {
 
 hbs.registerHelper('gt0', function(val) {
     return val > 0;
+});
+
+hbs.registerHelper('eq0', function(val) {
+    return val === 0;
 });
 
 hbs.registerHelper('lt0', function(val) {

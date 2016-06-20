@@ -9,7 +9,7 @@ const push = require('./push');
 module.exports = function(app) {
     app.get('/admin', function(req, res) {
         if(!req.user || req.user.admin !== true) {
-            res.status(404).render('404', {loggedIn : !!req.user});
+            res.status(404).render('404', {loggedIn : !!req.user, loggedUser: req.user});
             return;
         }
 
@@ -45,6 +45,7 @@ module.exports = function(app) {
                 date: moment().format('YYYY-MM-DD'),
                 time: moment().format('HH:mm'),
                 loggedIn: !!req.user,
+		loggedUser: req.user,
                 csrfToken: req.csrfToken(),
                 message: req.flash('message'),
                 error: req.flash('error')

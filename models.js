@@ -37,7 +37,8 @@ const Match = instance.define('Match', {
 
 const MatchType = instance.define('MatchType', {
     code: {type: Sequelize.STRING, allowNull: false, validate: {len: [1, 10]}},
-    name: {type: Sequelize.STRING, allowNull: false, validate: {len: [1, 100]}}
+    name: {type: Sequelize.STRING, allowNull: false, validate: {len: [1, 100]}},
+    coef: {type: Sequelize.INTEGER , allowNull: false } 
 }, {
     timestamps: false
 });

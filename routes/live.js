@@ -16,12 +16,19 @@ module.exports = function(app) {
                         MatchId: match.id
                     },
                     include: [ User ],
-                    order: [[User, 'name', 'ASC']]
+                    order: [['goalsHome', 'DESC'], ['goalsAway', 'DESC'], [User, 'name', 'ASC']]
                 });
             }).then(function(bets) {
                 for(var i = 0; i < matches.length; i++) {
                     matches[i].bets = bets[i];
                     matches[i].draw = 100 - matches[i].winnerhome - matches[i].winneraway;
+		    matches[i].nobet = [];
+		    for(var j = 0; j < matches[i].listnobetids.length; j++) {
+			matches[i]['nobet'].push({
+				id: matches[i].listnobetids[j],
+				name: matches[i].listnobetnames[j]
+			});
+		    } 
                 }
 
                 Match.findAll({
@@ -42,7 +49,7 @@ module.exports = function(app) {
                     order: [['when', 'ASC']],
                     limit: 3
                 }).then(function(nextMatches) {
-                    res.render('live', {matches, nextMatches, loggedIn: !!req.user});
+                    res.render('live', {matches, nextMatches, loggedIn: !!req.user, loggedUser: req.user});
                 });
             });
         });

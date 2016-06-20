@@ -31,15 +31,27 @@ module.exports =
         clientID: 'GOOGLE_CLIENT_ID'
         clientSecret: 'GOOGLE_CLIENT_SECRET'
 
-    # Password registration captcha
+    # Password registration captcha, can be disabled
     recaptcha:
+        active: true
         key: 'WEBSITE_KEY'
         secret: 'SECRET_KEY'
+
+    # Solution used to send emails: smtp with nodemailer or http using mailgun (need internet connection)
+    email:
+        solution: 'nodemailer'
+        from: 'noreply@DOMAIN'
+
+    # Parameters for nodemailer when email.solution = 'nodemailer'
+    # Every parameters for nodemailer.createTransport are availables here
+    nodemailer:
+        port:   25
+        host:   'SMTP_SERVER'
+        secure: false
 
     mailgun:
         secretKey: 'SECRET_API_KEY'
         domain: 'VERIFIED_DOMAIN'
-        from: 'noreply@DOMAIN'
 
     telegram:
         link: 'https://telegram.me/MY_BOT'
