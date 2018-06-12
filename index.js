@@ -15,6 +15,7 @@ const packageJson = require('./package.json');
 const routes = require('./routes');
 const config = require('./config');
 const instance = require('./models').instance;
+const scoreJob = require('./score-job');
 const Umzug = require('umzug');
 const umzug = new Umzug({
     storage: "sequelize",

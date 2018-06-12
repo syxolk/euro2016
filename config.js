@@ -15,6 +15,7 @@ module.exports = {
     // Timezone offset used for all datetime outputs (by moment.js)
     // Defaults to CEST (Central European Summer Time)
     utcOffset: process.env.UTC_OFFSET || "+0200",
+    footbalDataApiKey: "get your own key at https://www.football-data.org/client/register"
 };
 
 if(process.env.FACEBOOK_APP_ID && process.env.FACEBOOK_APP_SECRET) {

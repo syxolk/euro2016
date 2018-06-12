@@ -51,6 +51,7 @@ How to update euro2016 to the newest version:
 
 - Bower is no longer needed. We use gulp now. You can delete the
   `bower_components` folder.
+- added code to check results from WorldCup 2018 at http://api.football-data.org/v1/competitions/467
 
 ## Credits
 Icons made by [Papedesign][papedesign] from [www.flaticon.com][flaticon] is

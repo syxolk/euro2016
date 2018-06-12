@@ -39,6 +39,7 @@ const Match = instance.define('Match', {
     placeholderHome: Sequelize.TEXT,
     placeholderAway: Sequelize.TEXT,
     goalsInsertedAt: {type: Sequelize.DATE},
+    FixtureId: Sequelize.STRING
 }, {
     timestamps: false
 });
